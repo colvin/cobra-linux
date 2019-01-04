@@ -6,3 +6,4 @@ default: build
 
 
 include mk/init.mk
+include mk/util.mk
