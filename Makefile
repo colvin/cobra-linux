@@ -4,6 +4,13 @@
 
 default: build
 
+PROJECT_ROOT	= $(CURDIR)
 
 include mk/init.mk
+include mk/dirs.mk
 include mk/util.mk
+
+
+distclean:
+	test -n "$(DISTFILES)" && test "$(DISTFILES)" != "/"
+	-rm -rf "$(DISTFILES)"

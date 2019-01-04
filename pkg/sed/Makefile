@@ -1,0 +1,26 @@
+# $CCL$
+#
+# Copyright (c) 2019, Colvin Wellborn All rights reserved.
+
+PACKAGE		= sed
+ARCHIVE		= sed-4.5.tar.xz
+URL		= http://ftp.gnu.org/gnu/sed
+CHECKSUM	= ade8f8c2c548bf41f74db2dcfc37e4e3
+SOURCE_DIR	= sed-4.5
+
+default: build
+
+
+include $(CURDIR)/../../mk/pkg.mk
+
+
+build: fetch extract
+
+
+test:
+
+
+install:
+
+
+.PHONY: default build test install
