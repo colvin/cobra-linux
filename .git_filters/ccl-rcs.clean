@@ -1,0 +1,5 @@
+#!/usr/bin/env perl
+while (my $line = <STDIN>) {
+	$line =~ s/# \$CCL:[^\$]*\$/# \$CCL\$/;
+	print $line;
+}

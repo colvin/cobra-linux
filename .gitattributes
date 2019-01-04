@@ -1,0 +1,2 @@
+Makefile	filter=ccl-rcs
+mk/*		filter=ccl-rcs

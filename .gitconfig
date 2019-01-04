@@ -1,0 +1,3 @@
+[filter "ccl-rcs"]
+	clean	= .git_filters/ccl-rcs.clean
+	smudge	= .git_filters/ccl-rcs.smudge %f
