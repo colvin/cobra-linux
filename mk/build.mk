@@ -3,7 +3,11 @@
 # Copyright (c) 2019, Colvin Wellborn All rights reserved.
 
 build-image:
-	test -z "$(CCL_CONTAINER)"
+	@test -z "$(CCL_CONTAINER)" || ( \
+		echo "** container cannot be built within a container **"; \
+		exit 1 \
+	)
+	git archive -o ccl-src.tgz HEAD
 	docker build -f builder/Dockerfile -t ccl/builder:latest $(PROJECT_ROOT)
 
 ifdef CCL_CONTAINER

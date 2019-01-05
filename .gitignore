@@ -272,3 +272,6 @@ tags
 /distfiles
 /result
 work/
+*.tar
+*.tar.*
+*.t?z

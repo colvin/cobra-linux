@@ -22,7 +22,7 @@ RUN apt-get update \
 
 WORKDIR /src
 
-ADD . .
+ADD ccl-src.tgz .
 
 RUN bash setup/version-check.sh
 
