@@ -7,6 +7,7 @@ distclean:
 	-rm -rf "$(LOCAL_DISTFILES)"
 	test -n "$(LOCAL_RESULT_DIR)" && test "$(LOCAL_RESULT_DIR)" != "/"
 	-rm -rf "$(LOCAL_RESULT_DIR)"
+	-rm -rf "$(PROJECT_ROOT)"/ccl-src.tgz
 
 container-check:
 	@test -n "$(CCL_CONTAINER)" || ( \
