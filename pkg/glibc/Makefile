@@ -10,17 +10,36 @@ SOURCE_DIR	= glibc-2.28
 
 default: build
 
-
 include $(CURDIR)/../../mk/pkg.mk
 
+bootstrap-one: fetch extract bootstrap-one-build install bootstrap-one-test
+
+bootstrap-one-build:
+	mkdir $(BUILD_DIR)/build
+	cd $(BUILD_DIR)/build \
+	&& ../configure \
+		--prefix=/tools \
+		--host=$(BOOTSTRAP_TGT) \
+		--build=`../scripts/config.guess` \
+		--enable-kernel=3.2 \
+		--with-headers=/tools/include \
+		libc_cv_forced_unwind=yes \
+		libc_cv_c_cleanup=yes \
+	&& make
+
+bootstrap-one-test:
+	cd $(WORK_DIR) \
+	&& echo 'int main(){}' > dummy.c \
+	&& $(BOOTSTRAP_TGT)-gcc dummy.c \
+	&& readelf -l a.out | grep ': /tools' | grep -q /tools/lib64/ld-linux-x86-64.so.2
 
 build: fetch extract
-
+	false
 
 test:
-
+	false
 
 install:
-
+	cd $(BUILD_DIR)/build && make install
 
 .PHONY: default build test install

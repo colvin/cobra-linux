@@ -10,17 +10,29 @@ SOURCE_DIR	= ncurses-6.1
 
 default: build
 
-
 include $(CURDIR)/../../mk/pkg.mk
 
+bootstrap-two: fetch extract bootstrap-two-build install
+
+bootstrap-two-build:
+	cd $(BUILD_DIR) \
+	&& sed -i s/mawk// configure \
+	&& ./configure \
+		--prefix=/tools \
+		--with-shared \
+		--without-debug \
+		--without-ada \
+		--enable-widec \
+		--enable-overwrite \
+	&& make
 
 build: fetch extract
-
+	false
 
 test:
-
+	false
 
 install:
-
+	cd $(BUILD_DIR) && make install
 
 .PHONY: default build test install

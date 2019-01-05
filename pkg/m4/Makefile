@@ -10,17 +10,24 @@ SOURCE_DIR	= m4-1.4.18
 
 default: build
 
-
 include $(CURDIR)/../../mk/pkg.mk
 
+bootstrap-two: fetch extract bootstrap-two-build install
+
+bootstrap-two-build:
+	cd $(BUILD_DIR) \
+	&& sed -i 's/IO_ftrylockfile/IO_EOF_SEEN/' lib/*.c \
+	&& echo "#define _IO_IN_BACKUP 0x100" >> lib/stdio-impl.h \
+	&& ./configure --prefix=/tools \
+	&& make
 
 build: fetch extract
-
+	false
 
 test:
-
+	false
 
 install:
-
+	cd $(BUILD_DIR) && make install
 
 .PHONY: default build test install

@@ -3,5 +3,5 @@
 # Copyright (c) 2019, Colvin Wellborn All rights reserved.
 
 clean:
-	test -n "$(WORKDIR)" && test "$(WORKDIR)" != "/"
-	-rm -rf "$(WORKDIR)"
+	test -n "$(WORK_DIR)" && test "$(WORK_DIR)" != "/"
+	-rm -rf "$(WORK_DIR)"

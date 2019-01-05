@@ -10,17 +10,28 @@ SOURCE_DIR	= util-linux-2.32.1
 
 default: build
 
-
 include $(CURDIR)/../../mk/pkg.mk
 
+bootstrap-two: fetch extract bootstrap-two-build install
+
+bootstrap-two-build:
+	cd $(BUILD_DIR) \
+	&& ./configure \
+		--prefix=/tools \
+		--without-python \
+		--disable-makeinstall-chown \
+		--without-systemdsystemunitdir \
+		--without-ncurses \
+		PKG_CONFIG="" \
+	&& make
 
 build: fetch extract
-
+	false
 
 test:
-
+	false
 
 install:
-
+	cd $(BUILD_DIR) && make install
 
 .PHONY: default build test install

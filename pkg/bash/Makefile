@@ -10,17 +10,25 @@ SOURCE_DIR	= bash-4.4.18
 
 default: build
 
-
 include $(CURDIR)/../../mk/pkg.mk
 
+bootstrap-two: fetch extract bootstrap-two-build install bootstrap-two-postinstall
+
+bootstrap-two-build:
+	cd $(BUILD_DIR) \
+	&& ./configure --prefix=/tools --without-bash-malloc \
+	&& make
+
+bootstrap-two-postinstall:
+	ln -s bash /tools/bin/sh
 
 build: fetch extract
-
+	false
 
 test:
-
+	false
 
 install:
-
+	cd $(BUILD_DIR) && make install
 
 .PHONY: default build test install

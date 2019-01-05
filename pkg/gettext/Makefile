@@ -10,17 +10,29 @@ SOURCE_DIR	= gettext-0.19.8.1
 
 default: build
 
-
 include $(CURDIR)/../../mk/pkg.mk
 
+bootstrap-two: fetch extract bootstrap-two-build-install
+
+bootstrap-two-build-install:
+	cd $(BUILD_DIR)/gettext-tools \
+	&& EMACS="no" ./configure \
+		--prefix=/tools \
+		--disable-shared \
+	&& $(MAKE) -C gnulib-lib \
+	&& $(MAKE) -C intl pluralx.c \
+	&& $(MAKE) -C src msgfmt \
+	&& $(MAKE) -C src msgmerge \
+	&& $(MAKE) -C src xgettext \
+	&& cp src/{msgfmt,msgmerge,xgettext} /tools/bin
 
 build: fetch extract
-
+	false
 
 test:
-
+	false
 
 install:
-
+	false
 
 .PHONY: default build test install
