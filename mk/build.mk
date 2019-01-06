@@ -69,7 +69,8 @@ BOOTSTRAP_TWO = \
 
 SYSTEM_ONE = \
 	linux \
-	man-pages
+	man-pages \
+	glibc
 
 SYSTEM_TWO =
 
@@ -227,8 +228,8 @@ chroot-build: chroot-check
 		echo ; echo "====> $$pkg" ; echo ; \
 		$(MAKE) -C $(PKG_DIR)/$$pkg || exit 1 ;\
 	done
-	install -m 0644 $(ETC_DIR)/ld.so.conf $(BUILD_ROOT)/etc/ld.so.conf
-	install -m 0644 $(ETC_DIR)/nsswitch.conf $(BUILD_ROOT)/etc/nsswitch.conf
+	install -m 0644 $(ETC_DIR)/ld.so.conf /etc/ld.so.conf
+	install -m 0644 $(ETC_DIR)/nsswitch.conf /etc/nsswitch.conf
 	## TODO: adjust toolchain
 	for pkg in $(SYSTEM_TWO); do \
 		echo ; echo "====> $$pkg" ; echo ; \
