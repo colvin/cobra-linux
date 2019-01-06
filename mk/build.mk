@@ -66,7 +66,7 @@ DOCKER_RUN_RM	= --rm
 endif
 
 run-container: build-image $(LOCAL_DISTFILES) $(LOCAL_RESULT_DIR)
-	time -p \
+	time --format '\n%C\n(%x) runtime: %E, mem: %M KB\n' \
 	docker run -t $(DOCKER_RUN_RM) \
 		--mount 'type=bind,src=$(LOCAL_DISTFILES),dst=$(DISTFILES)' \
 		--mount 'type=bind,src=$(LOCAL_RESULT_DIR),dst=$(RESULT_DIR)' \
