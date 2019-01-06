@@ -1,2 +1,2 @@
-Makefile	filter=cobra-rcs
-mk/*		filter=cobra-rcs
+Makefile	filter=fenrir-rcs
+mk/*		filter=fenrir-rcs

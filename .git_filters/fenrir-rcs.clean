@@ -1,5 +1,5 @@
 #!/usr/bin/env perl
 while (my $line = <STDIN>) {
-	$line =~ s/# \$COBRA:[^\$]*\$/# \$COBRA\$/;
+	$line =~ s/# \$FENRIR:[^\$]*\$/# \$FENRIR\$/;
 	print $line;
 }
