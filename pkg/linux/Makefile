@@ -24,13 +24,13 @@ build: chroot-check fetch extract
 	cd $(BUILD_DIR) \
 	&& make mrproper \
 	&& make INSTALL_HDR_PATH=dest headers_install \
-	&& find dest/include \( -name .install -o -name ..install.cmd \) -delete \
-	&& cp -r dest/include/* /usr/include
+	&& find dest/include \( -name .install -o -name ..install.cmd \) -delete
 
 test:
 	false
 
 install:
-	false
+	cd $(BUILD_DIR) \
+	cp -r dest/include/* /usr/include
 
 .PHONY: default build test install
