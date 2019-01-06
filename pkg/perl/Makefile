@@ -22,7 +22,7 @@ bootstrap-two-build-install:
 		-Dlibs=-lm \
 		-Uloclibpth \
 		-Ulocincpth \
-	&& make \
+	&& make -j$(PKG_JOBS) \
 	&& cp perl cpan/podlators/scripts/pod2man /tools/bin \
 	&& mkdir -p /tools/lib/perl5/5.28.0 \
 	&& cp -R lib/* /tools/lib/perl5/5.28.0

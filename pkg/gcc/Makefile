@@ -60,7 +60,7 @@ bootstrap-one-build:
 		--disable-libvtv \
 		--disable-libstdcxx \
 		--enable-languages=c,c++ \
-	&& make
+	&& make -j$(PKG_JOBS)
 
 bootstrap-two: fetch extract bootstrap-prep bootstrap-two-build install compile-dummy
 
@@ -83,7 +83,7 @@ bootstrap-two-build:
 		--disable-multilib \
 		--disable-bootstrap \
 		--disable-libgomp \
-	&& make
+	&& make -j$(PKG_JOBS)
 
 build: fetch extract
 	false

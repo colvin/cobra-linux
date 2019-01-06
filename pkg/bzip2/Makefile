@@ -18,7 +18,7 @@ bootstrap-two-install:
 	cd $(BUILD_DIR) && make PREFIX=/tools install
 
 build: fetch extract
-	cd $(BUILD_DIR) && make
+	cd $(BUILD_DIR) && make -j$(PKG_JOBS)
 
 test:
 

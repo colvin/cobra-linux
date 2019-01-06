@@ -17,7 +17,7 @@ bootstrap-two: fetch extract bootstrap-two-build install
 bootstrap-two-build:
 	cd $(BUILD_DIR) \
 	&& ./configure --prefix=/tools \
-	&& make
+	&& make -j$(PKG_JOBS)
 
 build: fetch extract
 	false

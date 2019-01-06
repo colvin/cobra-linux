@@ -26,7 +26,7 @@ bootstrap-one-build:
 		--disable-libstdcxx-threads \
 		--disable-libstdcxx-pch \
 		--with-gxx-include-dir=/tools/$(BOOTSTRAP_TGT)/include/c++/$(VERSION) \
-	&& make
+	&& make -j$(PKG_JOBS)
 
 build: fetch extract
 	false

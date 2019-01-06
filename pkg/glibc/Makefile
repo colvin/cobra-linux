@@ -25,7 +25,7 @@ bootstrap-one-build:
 		--with-headers=/tools/include \
 		libc_cv_forced_unwind=yes \
 		libc_cv_c_cleanup=yes \
-	&& make
+	&& make -j$(PKG_JOBS)
 
 bootstrap-one-test:
 	cd $(WORK_DIR) \

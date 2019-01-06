@@ -23,7 +23,7 @@ bootstrap-two-build:
 		--without-systemdsystemunitdir \
 		--without-ncurses \
 		PKG_CONFIG="" \
-	&& make
+	&& make -j$(PKG_JOBS)
 
 build: fetch extract
 	false

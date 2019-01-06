@@ -22,7 +22,7 @@ bootstrap-two-build:
 		--prefix=/tools \
 		--with-tcl=/tools/lib \
 		--with-tclinclude=/tools/include \
-	&& make
+	&& make -j$(PKG_JOBS)
 
 bootstrap-two-install:
 	cd $(BUILD_DIR) && make SCRIPTS="" install

@@ -24,7 +24,7 @@ bootstrap-one-build:
 		--target=$(BOOTSTRAP_TGT) \
 		--disable-nls \
 		--disable-werror \
-	&& make \
+	&& make -j$(PKG_JOBS) \
 	&& mkdir -v /tools/lib \
 	&& ln -sv lib /tools/lib64
 
@@ -42,12 +42,12 @@ bootstrap-two-build:
 		--disable-werror \
 		--with-lib-path=/tools/lib \
 		--with-sysroot \
-	&& make
+	&& make -j$(PKG_JOBS)
 
 bootstrap-two-postinstall:
 	cd $(BUILD_DIR)/build \
 	&& make -C ld clean \
-	&& make -C ld LIB_PATH=/usr/lib:/lib \
+	&& make -j$(PKG_JOBS) -C ld LIB_PATH=/usr/lib:/lib \
 	&& cp ld/ld-new /tools/bin
 
 build: fetch extract

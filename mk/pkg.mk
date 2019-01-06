@@ -10,3 +10,5 @@ include $(PROJECT_ROOT)/mk/extract.mk
 include $(PROJECT_ROOT)/mk/clean.mk
 
 BOOTSTRAP_TGT	= x86_64-fenrir-linux-gnu
+
+PKG_JOBS	?= $(shell expr `grep ^processor /proc/cpuinfo | wc -l` + 2)

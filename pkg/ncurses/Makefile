@@ -24,7 +24,7 @@ bootstrap-two-build:
 		--without-ada \
 		--enable-widec \
 		--enable-overwrite \
-	&& make
+	&& make -j$(PKG_JOBS)
 
 build: fetch extract
 	false

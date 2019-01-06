@@ -20,7 +20,7 @@ bootstrap-two-build:
 	&& sed -i '/unistd/a #include <sys/sysmacros.h>' gl/lib/mountlist.c \
 	&& echo "#define _IO_IN_BACKUP 0x100" >> gl/lib/stdio-impl.h \
 	&& ./configure --prefix=/tools \
-	&& make
+	&& make -j$(PKG_JOBS)
 
 build: fetch extract
 	false

@@ -19,7 +19,7 @@ bootstrap-two-build:
 	&& ./configure \
 		--prefix=/tools \
 		--enable-install-program=hostname \
-	&& make
+	&& make -j$(PKG_JOBS)
 
 build: fetch extract
 	false

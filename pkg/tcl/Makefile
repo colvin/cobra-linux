@@ -17,7 +17,7 @@ bootstrap-two: fetch extract bootstrap-two-build install bootstrap-two-postinsta
 bootstrap-two-build:
 	cd $(BUILD_DIR)/unix \
 	&& ./configure --prefix=/tools \
-	&& make
+	&& make -j$(PKG_JOBS)
 
 bootstrap-two-postinstall:
 	cd $(BUILD_DIR)/unix \
