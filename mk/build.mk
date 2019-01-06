@@ -66,7 +66,8 @@ DOCKER_RUN_RM	= --rm
 endif
 
 run-container: build-image $(LOCAL_DISTFILES) $(LOCAL_RESULT_DIR)
-	time docker run -t $(DOCKER_RUN_RM) \
+	time -p \
+	docker run -t $(DOCKER_RUN_RM) \
 		--mount 'type=bind,src=$(LOCAL_DISTFILES),dst=$(DISTFILES)' \
 		--mount 'type=bind,src=$(LOCAL_RESULT_DIR),dst=$(RESULT_DIR)' \
 		fenrir/builder:latest
