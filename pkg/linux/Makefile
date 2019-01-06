@@ -31,6 +31,6 @@ test:
 
 install:
 	cd $(BUILD_DIR) \
-	cp -r dest/include/* /usr/include
+	&& cp -r dest/include/* /usr/include
 
 .PHONY: default build test install
