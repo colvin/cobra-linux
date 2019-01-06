@@ -8,7 +8,7 @@ URL		= https://launchpad.net/intltool/trunk/0.51.0/+download
 CHECKSUM	= 12e517cac2b57a0121cda351570f1e63
 SOURCE_DIR	= intltool-0.51.0
 
-default: build
+default: build install clean
 
 include $(CURDIR)/../../mk/pkg.mk
 

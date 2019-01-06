@@ -8,7 +8,7 @@ URL		= http://anduin.linuxfromscratch.org/LFS
 CHECKSUM	= b3be99a8fff33c773f034151b16eb1b8
 SOURCE_DIR	= systemd-man-pages-239
 
-default: build
+default: build install clean
 
 include $(CURDIR)/../../mk/pkg.mk
 

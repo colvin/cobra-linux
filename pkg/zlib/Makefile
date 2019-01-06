@@ -8,7 +8,7 @@ URL		= https://zlib.net
 CHECKSUM	= 85adef240c5f370b308da8c938951a68
 SOURCE_DIR	= zlib-1.2.11
 
-default: build
+default: build install clean
 
 include $(CURDIR)/../../mk/pkg.mk
 

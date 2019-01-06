@@ -8,7 +8,7 @@ URL		= ftp://ftp.astron.com/pub/file
 CHECKSUM	= 44b0b6983462b18f96403d4d3ad80254
 SOURCE_DIR	= file-5.34
 
-default: build
+default: build install clean
 
 include $(CURDIR)/../../mk/pkg.mk
 

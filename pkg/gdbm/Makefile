@@ -8,7 +8,7 @@ URL		= http://ftp.gnu.org/gnu/gdbm
 CHECKSUM	= f20ce117abc6f302ecf62c34d41c1ecf
 SOURCE_DIR	= gdbm-1.17
 
-default: build
+default: build install clean
 
 include $(CURDIR)/../../mk/pkg.mk
 

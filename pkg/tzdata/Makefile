@@ -8,7 +8,7 @@ URL		= https://www.iana.org/time-zones/repository/releases
 CHECKSUM	= 97d654f4d7253173b3eeb76a836dd65e
 SOURCE_DIR	=
 
-default: build
+default: build install clean
 
 include $(CURDIR)/../../mk/pkg.mk
 

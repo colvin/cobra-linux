@@ -8,7 +8,7 @@ URL		= http://ftp.gnu.org/gnu/diffutils
 CHECKSUM	= 07cf286672ced26fba54cd0313bdc071
 SOURCE_DIR	= diffutils-3.6
 
-default: build
+default: build install clean
 
 include $(CURDIR)/../../mk/pkg.mk
 

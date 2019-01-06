@@ -8,7 +8,7 @@ URL		= https://www.kernel.org/pub/linux/utils/net/iproute2
 CHECKSUM	= 8b8680e91390c57cab788fbf8e929479
 SOURCE_DIR	= iproute2-4.18.0
 
-default: build
+default: build install clean
 
 include $(CURDIR)/../../mk/pkg.mk
 

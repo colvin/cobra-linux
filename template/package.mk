@@ -8,7 +8,7 @@ URL		= REPLACE_URL
 CHECKSUM	= REPLACE_CHECKSUM
 SOURCE_DIR	= REPLACE_SOURCE_DIR
 
-default: build
+default: build install clean
 
 include $(CURDIR)/../../mk/pkg.mk
 

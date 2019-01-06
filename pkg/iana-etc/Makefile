@@ -8,7 +8,7 @@ URL		= http://anduin.linuxfromscratch.org/LFS
 CHECKSUM	= 3ba3afb1d1b261383d247f46cb135ee8
 SOURCE_DIR	= iana-etc-2.30
 
-default: build
+default: build install clean
 
 include $(CURDIR)/../../mk/pkg.mk
 

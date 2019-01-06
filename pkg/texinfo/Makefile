@@ -8,7 +8,7 @@ URL		= http://ftp.gnu.org/gnu/texinfo
 CHECKSUM	= 3715197e62e0e07f85860b3d7aab55ed
 SOURCE_DIR	= texinfo-6.5
 
-default: build
+default: build install clean
 
 include $(CURDIR)/../../mk/pkg.mk
 

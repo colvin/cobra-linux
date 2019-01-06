@@ -8,7 +8,7 @@ URL		= https://sourceforge.net/projects/psmisc/files/psmisc
 CHECKSUM	= bbba1f701c02fb50d59540d1ff90d8d1
 SOURCE_DIR	= psmisc-23.1
 
-default: build
+default: build install clean
 
 include $(CURDIR)/../../mk/pkg.mk
 

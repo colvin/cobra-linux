@@ -8,7 +8,7 @@ URL		= http://ftp.gnu.org/gnu/bash
 CHECKSUM	= 518e2c187cc11a17040f0915dddce54e
 SOURCE_DIR	= bash-4.4.18
 
-default: build
+default: build install clean
 
 include $(CURDIR)/../../mk/pkg.mk
 

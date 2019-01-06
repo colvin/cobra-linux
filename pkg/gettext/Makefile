@@ -8,7 +8,7 @@ URL		= http://ftp.gnu.org/gnu/gettext
 CHECKSUM	= df3f5690eaa30fd228537b00cb7b7590
 SOURCE_DIR	= gettext-0.19.8.1
 
-default: build
+default: build install clean
 
 include $(CURDIR)/../../mk/pkg.mk
 

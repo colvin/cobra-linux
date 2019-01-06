@@ -8,7 +8,7 @@ URL		= http://ftp.gnu.org/gnu/bison
 CHECKSUM	= 3e54f20988ecd1b62044e25481e5f06b
 SOURCE_DIR	= bison-3.0.5
 
-default: build
+default: build install clean
 
 include $(CURDIR)/../../mk/pkg.mk
 

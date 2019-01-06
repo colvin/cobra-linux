@@ -8,7 +8,7 @@ URL		= http://www.greenwoodsoftware.com/less
 CHECKSUM	= 6a39bccf420c946b0fd7ffc64961315b
 SOURCE_DIR	= less-530
 
-default: build
+default: build install clean
 
 include $(CURDIR)/../../mk/pkg.mk
 

@@ -8,7 +8,7 @@ URL		= https://github.com/shadow-maint/shadow/releases/download/4.6
 CHECKSUM	= b491fecbf1232632c32ff8f1437fd60e
 SOURCE_DIR	= shadow-4.6
 
-default: build
+default: build install clean
 
 include $(CURDIR)/../../mk/pkg.mk
 

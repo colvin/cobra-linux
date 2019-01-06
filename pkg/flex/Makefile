@@ -8,7 +8,7 @@ URL		= https://github.com/westes/flex/releases/download/v2.6.4
 CHECKSUM	= 2882e3179748cc9f9c23ec593d6adc8d
 SOURCE_DIR	= flex-2.6.4
 
-default: build
+default: build install clean
 
 include $(CURDIR)/../../mk/pkg.mk
 

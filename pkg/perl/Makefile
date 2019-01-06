@@ -8,7 +8,7 @@ URL		= https://www.cpan.org/src/5.0
 CHECKSUM	= f3245183c0a08f65e94a3333995af08e
 SOURCE_DIR	= perl-5.28.0
 
-default: build
+default: build install clean
 
 include $(CURDIR)/../../mk/pkg.mk
 

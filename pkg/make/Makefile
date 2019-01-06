@@ -8,7 +8,7 @@ URL		= http://ftp.gnu.org/gnu/make
 CHECKSUM	= 15b012617e7c44c0ed482721629577ac
 SOURCE_DIR	= make-4.2.1
 
-default: build
+default: build install clean
 
 include $(CURDIR)/../../mk/pkg.mk
 

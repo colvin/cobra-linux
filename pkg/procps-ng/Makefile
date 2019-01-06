@@ -8,7 +8,7 @@ URL		= https://sourceforge.net/projects/procps-ng/files/Production
 CHECKSUM	= 2b0717a7cb474b3d6dfdeedfbad2eccc
 SOURCE_DIR	= procps-ng-3.3.15
 
-default: build
+default: build install clean
 
 include $(CURDIR)/../../mk/pkg.mk
 

@@ -8,7 +8,7 @@ URL		= https://cpan.metacpan.org/authors/id/T/TO/TODDR
 CHECKSUM	= af4813fe3952362451201ced6fbce379
 SOURCE_DIR	= XML-Parser-2.44
 
-default: build
+default: build install clean
 
 include $(CURDIR)/../../mk/pkg.mk
 

@@ -9,7 +9,7 @@ URL		= http://ftp.gnu.org/gnu/gcc/gcc-$(VERSION)
 CHECKSUM	= 4ab282f414676496483b3e1793d07862
 SOURCE_DIR	= gcc-$(VERSION)
 
-default: build
+default: build install clean
 
 include $(CURDIR)/../../mk/pkg.mk
 

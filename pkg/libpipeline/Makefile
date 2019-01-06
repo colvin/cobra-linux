@@ -8,7 +8,7 @@ URL		= http://download.savannah.gnu.org/releases/libpipeline
 CHECKSUM	= b7437a5020190cfa84f09c412db38902
 SOURCE_DIR	= libpipeline-1.5.0
 
-default: build
+default: build install clean
 
 include $(CURDIR)/../../mk/pkg.mk
 

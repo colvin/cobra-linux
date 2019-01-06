@@ -8,7 +8,7 @@ URL		= http://ftp.gnu.org/gnu/gperf
 CHECKSUM	= 9e251c0a618ad0824b51117d5d9db87e
 SOURCE_DIR	= gperf-3.1
 
-default: build
+default: build install clean
 
 include $(CURDIR)/../../mk/pkg.mk
 

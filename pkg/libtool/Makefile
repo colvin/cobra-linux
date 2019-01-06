@@ -8,7 +8,7 @@ URL		= http://ftp.gnu.org/gnu/libtool
 CHECKSUM	= 1bfb9b923f2c1339b4d2ce1807064aa5
 SOURCE_DIR	= libtool-2.4.6
 
-default: build
+default: build install clean
 
 include $(CURDIR)/../../mk/pkg.mk
 

@@ -8,7 +8,7 @@ URL		= https://www.kernel.org/pub/linux/utils/kernel/kmod
 CHECKSUM	= 34f325cab568f842fdde4f8b2182f220
 SOURCE_DIR	= kmod-25
 
-default: build
+default: build install clean
 
 include $(CURDIR)/../../mk/pkg.mk
 

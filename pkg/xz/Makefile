@@ -8,7 +8,7 @@ URL		= https://tukaani.org/xz
 CHECKSUM	= 003e4d0b1b1899fc6e3000b24feddf7c
 SOURCE_DIR	= xz-5.2.4
 
-default: build
+default: build install clean
 
 include $(CURDIR)/../../mk/pkg.mk
 

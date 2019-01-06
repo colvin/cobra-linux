@@ -8,7 +8,7 @@ URL		= http://ftp.gnu.org/gnu/coreutils
 CHECKSUM	= ab06d68949758971fe744db66b572816
 SOURCE_DIR	= coreutils-8.30
 
-default: build
+default: build install clean
 
 include $(CURDIR)/../../mk/pkg.mk
 

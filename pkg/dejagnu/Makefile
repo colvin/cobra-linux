@@ -8,7 +8,7 @@ URL		= http://ftp.gnu.org/gnu/dejagnu
 CHECKSUM	= 2ac8405a4c7ca8611d004fe852966c6f
 SOURCE_DIR	= dejagnu-1.6.1
 
-default: build
+default: build install clean
 
 include $(CURDIR)/../../mk/pkg.mk
 

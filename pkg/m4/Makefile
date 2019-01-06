@@ -8,7 +8,7 @@ URL		= http://ftp.gnu.org/gnu/m4
 CHECKSUM	= 730bb15d96fffe47e148d1e09235af82
 SOURCE_DIR	= m4-1.4.18
 
-default: build
+default: build install clean
 
 include $(CURDIR)/../../mk/pkg.mk
 

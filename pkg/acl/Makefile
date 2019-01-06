@@ -8,7 +8,7 @@ URL		= http://download.savannah.gnu.org/releases/acl
 CHECKSUM	= 007aabf1dbb550bcddde52a244cd1070
 SOURCE_DIR	= acl-2.2.53
 
-default: build
+default: build install clean
 
 include $(CURDIR)/../../mk/pkg.mk
 

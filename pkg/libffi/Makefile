@@ -8,7 +8,7 @@ URL		= ftp://sourceware.org/pub/libffi
 CHECKSUM	= 83b89587607e3eb65c70d361f13bab43
 SOURCE_DIR	= libffi-3.2.1
 
-default: build
+default: build install clean
 
 include $(CURDIR)/../../mk/pkg.mk
 

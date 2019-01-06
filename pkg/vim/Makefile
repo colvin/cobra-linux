@@ -8,7 +8,7 @@ URL		= ftp://ftp.vim.org/pub/vim/unix
 CHECKSUM	= 1739a1df312305155285f0cfa6118294
 SOURCE_DIR	= vim-8.1
 
-default: build
+default: build install clean
 
 include $(CURDIR)/../../mk/pkg.mk
 

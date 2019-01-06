@@ -8,7 +8,7 @@ URL		= https://downloads.sourceforge.net/tcl
 CHECKSUM	= 81656d3367af032e0ae6157eff134f89
 SOURCE_DIR	= tcl8.6.8
 
-default: build
+default: build install clean
 
 include $(CURDIR)/../../mk/pkg.mk
 

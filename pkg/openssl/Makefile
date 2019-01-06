@@ -8,7 +8,7 @@ URL		= https://openssl.org/source
 CHECKSUM	= 9495126aafd2659d357ea66a969c3fe1
 SOURCE_DIR	= openssl-1.1.0i
 
-default: build
+default: build install clean
 
 include $(CURDIR)/../../mk/pkg.mk
 

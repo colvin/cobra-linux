@@ -8,7 +8,7 @@ URL		= http://ftp.gnu.org/gnu/glibc
 CHECKSUM	= c81d2388896379997bc359d4f2084239
 SOURCE_DIR	= glibc-2.28
 
-default: build
+default: build install clean
 
 include $(CURDIR)/../../mk/pkg.mk
 

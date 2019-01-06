@@ -8,7 +8,7 @@ URL		= http://ftp.gnu.org/gnu/binutils
 CHECKSUM	= 5b7c9d4ce96f507d95c1b9a255e52418
 SOURCE_DIR	= binutils-2.31.1
 
-default: build
+default: build install clean
 
 include $(CURDIR)/../../mk/pkg.mk
 

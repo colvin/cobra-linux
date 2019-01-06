@@ -8,7 +8,7 @@ URL		= http://ftp.gnu.org/gnu/gawk
 CHECKSUM	= 95cf553f50ec9f386b5dfcd67f30180a
 SOURCE_DIR	= gawk-4.2.1
 
-default: build
+default: build install clean
 
 include $(CURDIR)/../../mk/pkg.mk
 

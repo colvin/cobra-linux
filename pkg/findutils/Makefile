@@ -8,7 +8,7 @@ URL		= http://ftp.gnu.org/gnu/findutils
 CHECKSUM	= 9936aa8009438ce185bea2694a997fc1
 SOURCE_DIR	= findutils-4.6.0
 
-default: build
+default: build install clean
 
 include $(CURDIR)/../../mk/pkg.mk
 

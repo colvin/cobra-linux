@@ -8,7 +8,7 @@ URL		= http://ftp.gnu.org/gnu/autoconf
 CHECKSUM	= 50f97f4159805e374639a73e2636f22e
 SOURCE_DIR	= autoconf-2.69
 
-default: build
+default: build install clean
 
 include $(CURDIR)/../../mk/pkg.mk
 

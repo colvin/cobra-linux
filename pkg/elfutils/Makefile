@@ -8,7 +8,7 @@ URL		= https://sourceware.org/ftp/elfutils/0.173
 CHECKSUM	= 35decb1ebfb90d565e4c411bee4185cc
 SOURCE_DIR	= elfutils-0.173
 
-default: build
+default: build install clean
 
 include $(CURDIR)/../../mk/pkg.mk
 

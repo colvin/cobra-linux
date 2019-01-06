@@ -8,7 +8,7 @@ URL		= http://ftp.gnu.org/gnu/readline
 CHECKSUM	= 205b03a87fc83dab653b628c59b9fc91
 SOURCE_DIR	= readline-7.0
 
-default: build
+default: build install clean
 
 include $(CURDIR)/../../mk/pkg.mk
 

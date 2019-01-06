@@ -8,7 +8,7 @@ URL		= https://github.com/libcheck/check/releases/download/0.12.0
 CHECKSUM	= 31b17c6075820a434119592941186f70
 SOURCE_DIR	= check-0.12.0
 
-default: build
+default: build install clean
 
 
 include $(CURDIR)/../../mk/pkg.mk

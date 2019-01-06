@@ -8,7 +8,7 @@ URL		= https://www.python.org/ftp/python/3.7.0
 CHECKSUM	= eb8c2a6b1447d50813c02714af4681f3
 SOURCE_DIR	= Python-3.7.0
 
-default: build
+default: build install clean
 
 include $(CURDIR)/../../mk/pkg.mk
 

@@ -8,7 +8,7 @@ URL		= http://anduin.linuxfromscratch.org/LFS
 CHECKSUM	= 00b516f4704d4a7cb50a1d97e6e8e15b
 SOURCE_DIR	= bzip2-1.0.6
 
-default: build
+default: build install clean
 
 include $(CURDIR)/../../mk/pkg.mk
 

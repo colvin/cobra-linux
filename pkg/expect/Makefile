@@ -8,7 +8,7 @@ URL		= https://prdownloads.sourceforge.net/expect
 CHECKSUM	= 00fce8de158422f5ccd2666512329bd2
 SOURCE_DIR	= expect5.45.4
 
-default: build
+default: build install clean
 
 include $(CURDIR)/../../mk/pkg.mk
 

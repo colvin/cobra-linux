@@ -8,7 +8,7 @@ URL		= https://dbus.freedesktop.org/releases/dbus
 CHECKSUM	= c3e12b4206e2a7da39d7cc42567790ef
 SOURCE_DIR	= dbus-1.12.10
 
-default: build
+default: build install clean
 
 
 include $(CURDIR)/../../mk/pkg.mk
