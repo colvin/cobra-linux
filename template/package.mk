@@ -13,9 +13,12 @@ default: build
 include $(CURDIR)/../../mk/pkg.mk
 
 build: chroot-check fetch extract
+	false
 
 test:
+	false
 
 install:
+	false
 
 .PHONY: default build test install
