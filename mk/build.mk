@@ -201,7 +201,7 @@ build-system:
 	@echo
 	@echo "    +=======================+"
 	@echo "    |                       |"
-	@echo "    |    building system    |"
+	@echo "    |    entering chroot    |"
 	@echo "    |                       |"
 	@echo "    +=======================+"
 	@echo

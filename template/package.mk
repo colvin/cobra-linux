@@ -1,6 +1,6 @@
 # $FENRIR$
 #
-# Copyright (c) 2019, Colvin Wellborn All rights reserved.
+# Copyright © 2019, Colvin Wellborn All rights reserved.
 
 PACKAGE		= REPLACE_PACKAGE
 ARCHIVE		= REPLACE_ARCHIVE
@@ -12,7 +12,7 @@ default: build
 
 include $(CURDIR)/../../mk/pkg.mk
 
-build: fetch extract
+build: chroot-check fetch extract
 
 test:
 
