@@ -1,4 +1,4 @@
-# $CCL$
+# $COBRA$
 #
 # Copyright (c) 2019, Colvin Wellborn All rights reserved.
 
@@ -10,17 +10,12 @@ SOURCE_DIR	= libcap-2.25
 
 default: build
 
-
 include $(CURDIR)/../../mk/pkg.mk
-
 
 build: fetch extract
 
-
 test:
 
-
 install:
-
 
 .PHONY: default build test install

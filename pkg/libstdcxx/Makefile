@@ -1,4 +1,4 @@
-# $CCL$
+# $COBRA$
 #
 # Copyright (c) 2019, Colvin Wellborn All rights reserved.
 
@@ -11,11 +11,9 @@ SOURCE_DIR	= gcc-$(VERSION)
 
 default: build
 
-
 include $(CURDIR)/../../mk/pkg.mk
 
 bootstrap-one: fetch extract bootstrap-one-build install
-
 
 bootstrap-one-build:
 	mkdir $(WORK_DIR)/$(SOURCE_DIR)/build
@@ -31,10 +29,10 @@ bootstrap-one-build:
 	&& make
 
 build: fetch extract
-
+	false
 
 test:
-
+	false
 
 install:
 	cd $(WORK_DIR)/$(SOURCE_DIR)/build && make install

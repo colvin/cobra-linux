@@ -1,7 +1,7 @@
 FROM debian:stretch
 
-LABEL "org.label-schema.vendor"="ccl"
-LABEL "org.label-schema.description"="ccl build container"
+LABEL "org.label-schema.vendor"="cobra linux"
+LABEL "org.label-schema.description"="cobra linux build container"
 LABEL "org.label-schema.maintainer"="colvin"
 
 RUN apt-get update \
@@ -22,13 +22,13 @@ RUN apt-get update \
 
 WORKDIR /src
 
-ADD ccl-src.tgz .
+ADD cobra-src.tgz .
 
 RUN bash setup/version-check.sh
 
-ENV CCL_CONTAINER 1
+ENV COBRA_CONTAINER 1
 ENV PATH /tools/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 RUN make setup
 
-CMD [ "make", "CCL_CONTAINER=1" ]
+CMD [ "make", "COBRA_CONTAINER=1" ]

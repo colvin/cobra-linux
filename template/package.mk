@@ -1,4 +1,4 @@
-# $CCL$
+# $COBRA$
 #
 # Copyright (c) 2019, Colvin Wellborn All rights reserved.
 
@@ -10,20 +10,12 @@ SOURCE_DIR	= REPLACE_SOURCE_DIR
 
 default: build
 
-
 include $(CURDIR)/../../mk/pkg.mk
-
 
 build: fetch extract
 
-
 test:
-
 
 install:
 
-
-clean:
-
-
-.PHONY: default build test install clean
+.PHONY: default build test install

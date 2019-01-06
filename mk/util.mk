@@ -1,16 +1,18 @@
-# $CCL$
+# $COBRA$
 #
 # Copyright (c) 2019, Colvin Wellborn All rights reserved.
+
+SRC_ARCHIVE	= cobra-src.tgz
 
 distclean:
 	test -n "$(LOCAL_DISTFILES)" && test "$(LOCAL_DISTFILES)" != "/"
 	-rm -rf "$(LOCAL_DISTFILES)"
 	test -n "$(LOCAL_RESULT_DIR)" && test "$(LOCAL_RESULT_DIR)" != "/"
 	-rm -rf "$(LOCAL_RESULT_DIR)"
-	-rm -rf "$(PROJECT_ROOT)"/ccl-src.tgz
+	-rm -rf "$(PROJECT_ROOT)"/$(SRC_ARCHIVE)
 
 container-check:
-	@test -n "$(CCL_CONTAINER)" || ( \
+	@test -n "$(COBRA_CONTAINER)" || ( \
 		echo "** build is unsafe outside of the build container **"; \
 		exit 1 \
 	)

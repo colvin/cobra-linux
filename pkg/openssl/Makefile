@@ -1,4 +1,4 @@
-# $CCL$
+# $COBRA$
 #
 # Copyright (c) 2019, Colvin Wellborn All rights reserved.
 
@@ -10,17 +10,12 @@ SOURCE_DIR	= openssl-1.1.0i
 
 default: build
 
-
 include $(CURDIR)/../../mk/pkg.mk
-
 
 build: fetch extract
 
-
 test:
 
-
 install:
-
 
 .PHONY: default build test install

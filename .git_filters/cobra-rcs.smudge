@@ -5,6 +5,6 @@ my $path	= shift;
 my $id = `git log --pretty=format:"%H %aI %an" -1 -- $path`;
 
 while (my $line = <STDIN>) {
-	$line =~ s/# \$CCL[^\$]*\$/# \$CCL: $path $id \$/;
+	$line =~ s/# \$COBRA[^\$]*\$/# \$COBRA: $path $id \$/;
 	print $line;
 }

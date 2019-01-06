@@ -1,2 +1,2 @@
-Makefile	filter=ccl-rcs
-mk/*		filter=ccl-rcs
+Makefile	filter=cobra-rcs
+mk/*		filter=cobra-rcs

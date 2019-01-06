@@ -1,16 +1,16 @@
-# $CCL$
+# $COBRA$
 #
 # Copyright (c) 2019, Colvin Wellborn All rights reserved.
 
 build-image:
-	@test -z "$(CCL_CONTAINER)" || ( \
+	@test -z "$(COBRA_CONTAINER)" || ( \
 		echo "** container cannot be built within a container **"; \
 		exit 1 \
 	)
-	git archive -o ccl-src.tgz HEAD
-	docker build -f builder/Dockerfile -t ccl/builder:latest $(PROJECT_ROOT)
+	git archive -o $(SRC_ARCHIVE) HEAD
+	docker build -f builder/Dockerfile -t cobra/builder:latest $(PROJECT_ROOT)
 
-ifdef CCL_CONTAINER
+ifdef COBRA_CONTAINER
 TOP_BUILD_TARGET = run-build
 export PATH = /tools/bin:/usr/sbin:/usr/bin:/sbin:/bin
 export FORCE_UNSAFE_CONFIGURE = 1
@@ -24,7 +24,7 @@ BUILD_TARGETS = \
 
 build: $(TOP_BUILD_TARGET)
 
-BOOTSTRAP_ARCHIVE = ccl-bootstrap.tgz
+BOOTSTRAP_ARCHIVE = cobra-bootstrap.tgz
 
 BOOTSTRAP_ONE = \
 	binutils \
@@ -69,7 +69,7 @@ run-container: build-image $(LOCAL_DISTFILES) $(LOCAL_RESULT_DIR)
 	docker run -t $(DOCKER_RUN_RM) \
 		--mount 'type=bind,src=$(LOCAL_DISTFILES),dst=$(DISTFILES)' \
 		--mount 'type=bind,src=$(LOCAL_RESULT_DIR),dst=$(RESULT_DIR)' \
-		ccl/builder:latest
+		cobra/builder:latest
 
 run-build: $(BUILD_TARGETS)
 

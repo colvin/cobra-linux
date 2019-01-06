@@ -1,4 +1,4 @@
-# $CCL$
+# $COBRA$
 #
 # Copyright (c) 2019, Colvin Wellborn All rights reserved.
 
@@ -9,4 +9,4 @@ include $(PROJECT_ROOT)/mk/fetch.mk
 include $(PROJECT_ROOT)/mk/extract.mk
 include $(PROJECT_ROOT)/mk/clean.mk
 
-BOOTSTRAP_TGT	= x86_64-ccl-linux-gnu
+BOOTSTRAP_TGT	= x86_64-cobra-linux-gnu
