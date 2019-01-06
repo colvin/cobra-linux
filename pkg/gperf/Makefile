@@ -1,6 +1,6 @@
 # $FENRIR$
 #
-# Copyright (c) 2019, Colvin Wellborn All rights reserved.
+# Copyright © 2019, Colvin Wellborn All rights reserved.
 
 PACKAGE		= gperf
 ARCHIVE		= gperf-3.1.tar.gz

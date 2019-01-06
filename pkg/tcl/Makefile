@@ -1,6 +1,6 @@
 # $FENRIR$
 #
-# Copyright (c) 2019, Colvin Wellborn All rights reserved.
+# Copyright © 2019, Colvin Wellborn All rights reserved.
 
 PACKAGE		= tcl
 ARCHIVE		= tcl8.6.8-src.tar.gz

@@ -1,6 +1,6 @@
 # $FENRIR$
 #
-# Copyright (c) 2019, Colvin Wellborn All rights reserved.
+# Copyright © 2019, Colvin Wellborn All rights reserved.
 
 PACKAGE		= gzip
 ARCHIVE		= gzip-1.9.tar.xz

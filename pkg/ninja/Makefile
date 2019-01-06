@@ -1,6 +1,6 @@
 # $FENRIR$
 #
-# Copyright (c) 2019, Colvin Wellborn All rights reserved.
+# Copyright © 2019, Colvin Wellborn All rights reserved.
 
 PACKAGE		= ninja
 ARCHIVE		= ninja-1.8.2.tar.gz

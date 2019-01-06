@@ -1,3 +1,7 @@
+# $FENRIR$
+#
+# Copyright © 2019, Colvin Wellborn All rights reserved.
+
 FROM debian:stretch
 
 LABEL "org.label-schema.vendor"="fenrir linux"

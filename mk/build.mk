@@ -1,6 +1,6 @@
 # $FENRIR$
 #
-# Copyright (c) 2019, Colvin Wellborn All rights reserved.
+# Copyright © 2019, Colvin Wellborn All rights reserved.
 
 build-image:
 	@test -z "$(FENRIR_CONTAINER)" || ( \
@@ -66,7 +66,7 @@ DOCKER_RUN_RM	= --rm
 endif
 
 run-container: build-image $(LOCAL_DISTFILES) $(LOCAL_RESULT_DIR)
-	docker run -t $(DOCKER_RUN_RM) \
+	time docker run -t $(DOCKER_RUN_RM) \
 		--mount 'type=bind,src=$(LOCAL_DISTFILES),dst=$(DISTFILES)' \
 		--mount 'type=bind,src=$(LOCAL_RESULT_DIR),dst=$(RESULT_DIR)' \
 		fenrir/builder:latest

@@ -1,2 +1,4 @@
+LICENSE		filter=fenrir-rcs
 Makefile	filter=fenrir-rcs
 mk/*		filter=fenrir-rcs
+builder/Dockerfile	filter=fenrir-rcs

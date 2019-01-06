@@ -1,6 +1,6 @@
 # $FENRIR$
 #
-# Copyright (c) 2019, Colvin Wellborn All rights reserved.
+# Copyright © 2019, Colvin Wellborn All rights reserved.
 
 SETUP_DIR		= $(PROJECT_ROOT)/setup
 PKG_DIR			= $(PROJECT_ROOT)/pkg
