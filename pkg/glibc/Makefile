@@ -52,7 +52,7 @@ build: chroot-check fetch extract
 	&& make -j$(PKG_JOBS)
 
 test:
-	cd $(BUILD_DIR)/build && make -j$(PKG_JOBS) check
+	-cd $(BUILD_DIR)/build && make -j$(PKG_JOBS) check
 
 install:
 	touch /etc/ld.so.conf
