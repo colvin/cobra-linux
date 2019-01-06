@@ -155,6 +155,7 @@ build-prep:
 	mkdir -p $(BUILD_ROOT)/boot
 	mkdir -p $(BUILD_ROOT)/etc
 	mkdir -p $(BUILD_ROOT)/etc/{opt,sysconfig}
+	mkdir -p $(BUILD_ROOT)/etc/ld.so.conf.d
 	mkdir -p $(BUILD_ROOT)/home
 	mkdir -p $(BUILD_ROOT)/lib
 	mkdir -p $(BUILD_ROOT)/lib/firmware
@@ -195,6 +196,7 @@ build-prep:
 	done
 	ln -s bash $(BUILD_ROOT)/bin/sh
 	ln -s /proc/self/mounts $(BUILD_ROOT)/etc/mtab
+	## files
 	install -m 0644 $(ETC_DIR)/passwd $(BUILD_ROOT)/etc/passwd
 	install -m 0644 $(ETC_DIR)/group $(BUILD_ROOT)/etc/group
 
@@ -225,6 +227,8 @@ chroot-build: chroot-check
 		echo ; echo "====> $$pkg" ; echo ; \
 		$(MAKE) -C $(PKG_DIR)/$$pkg || exit 1 ;\
 	done
+	install -m 0644 $(ETC_DIR)/ld.so.conf $(BUILD_ROOT)/etc/ld.so.conf
+	install -m 0644 $(ETC_DIR)/nsswitch.conf $(BUILD_ROOT)/etc/nsswitch.conf
 	## TODO: adjust toolchain
 	for pkg in $(SYSTEM_TWO); do \
 		echo ; echo "====> $$pkg" ; echo ; \
