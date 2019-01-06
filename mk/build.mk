@@ -187,7 +187,7 @@ build-system:
 		TERM=$(TERM) \
 		PATH=/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin \
 		/tools/bin/bash +h -c \
-		'make -C /fenrir chroot-build-one'
+		'make -C /fenrir FENRIR_IN_CHROOT=1 chroot-build-one'
 
 chroot-build-one:
 	@echo
@@ -197,7 +197,7 @@ chroot-build-one:
 	@echo "    |                                    |"
 	@echo "    +==================a=================+"
 	@echo
-	test -n "$(FENRIR_IN_CHROOT)" || do ( \
+	test -n "$(FENRIR_IN_CHROOT)" || ( \
 		echo "** cannot do build-system outside of the chroot **"; \
 		exit 1 \
 	)
