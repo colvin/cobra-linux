@@ -1,7 +1,7 @@
 FROM debian:stretch
 
-LABEL "org.label-schema.vendor"="cobra linux"
-LABEL "org.label-schema.description"="cobra linux build container"
+LABEL "org.label-schema.vendor"="fenrir linux"
+LABEL "org.label-schema.description"="fenrir linux build container"
 LABEL "org.label-schema.maintainer"="colvin"
 
 RUN apt-get update \
@@ -22,13 +22,13 @@ RUN apt-get update \
 
 WORKDIR /src
 
-ADD cobra-src.tgz .
+ADD fenrir-src.tgz .
 
 RUN bash setup/version-check.sh
 
-ENV COBRA_CONTAINER 1
+ENV FENRIR_CONTAINER 1
 ENV PATH /tools/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 RUN make setup
 
-CMD [ "make", "COBRA_CONTAINER=1" ]
+CMD [ "make", "FENRIR_CONTAINER=1" ]

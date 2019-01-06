@@ -1,16 +1,16 @@
-# $COBRA$
+# $FENRIR: mk/build.mk 8b800ad0c3c6da18caa0053206ed595631f65d1d 2019-01-05T19:35:21-05:00 colvin $
 #
 # Copyright (c) 2019, Colvin Wellborn All rights reserved.
 
 build-image:
-	@test -z "$(COBRA_CONTAINER)" || ( \
+	@test -z "$(FENRIR_CONTAINER)" || ( \
 		echo "** container cannot be built within a container **"; \
 		exit 1 \
 	)
 	git archive -o $(SRC_ARCHIVE) HEAD
-	docker build -f builder/Dockerfile -t cobra/builder:latest $(PROJECT_ROOT)
+	docker build -f builder/Dockerfile -t fenrir/builder:latest $(PROJECT_ROOT)
 
-ifdef COBRA_CONTAINER
+ifdef FENRIR_CONTAINER
 TOP_BUILD_TARGET = run-build
 export PATH = /tools/bin:/usr/sbin:/usr/bin:/sbin:/bin
 export FORCE_UNSAFE_CONFIGURE = 1
@@ -24,7 +24,7 @@ BUILD_TARGETS = \
 
 build: $(TOP_BUILD_TARGET)
 
-BOOTSTRAP_ARCHIVE = cobra-bootstrap.tgz
+BOOTSTRAP_ARCHIVE = fenrir-bootstrap.tgz
 
 BOOTSTRAP_ONE = \
 	binutils \
@@ -69,7 +69,7 @@ run-container: build-image $(LOCAL_DISTFILES) $(LOCAL_RESULT_DIR)
 	docker run -t $(DOCKER_RUN_RM) \
 		--mount 'type=bind,src=$(LOCAL_DISTFILES),dst=$(DISTFILES)' \
 		--mount 'type=bind,src=$(LOCAL_RESULT_DIR),dst=$(RESULT_DIR)' \
-		cobra/builder:latest
+		fenrir/builder:latest
 
 run-build: $(BUILD_TARGETS)
 

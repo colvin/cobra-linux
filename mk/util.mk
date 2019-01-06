@@ -1,8 +1,8 @@
-# $COBRA$
+# $FENRIR: mk/util.mk 8b800ad0c3c6da18caa0053206ed595631f65d1d 2019-01-05T19:35:21-05:00 colvin $
 #
 # Copyright (c) 2019, Colvin Wellborn All rights reserved.
 
-SRC_ARCHIVE	= cobra-src.tgz
+SRC_ARCHIVE	= fenrir-src.tgz
 
 distclean:
 	test -n "$(LOCAL_DISTFILES)" && test "$(LOCAL_DISTFILES)" != "/"
@@ -12,7 +12,7 @@ distclean:
 	-rm -rf "$(PROJECT_ROOT)"/$(SRC_ARCHIVE)
 
 container-check:
-	@test -n "$(COBRA_CONTAINER)" || ( \
+	@test -n "$(FENRIR_CONTAINER)" || ( \
 		echo "** build is unsafe outside of the build container **"; \
 		exit 1 \
 	)
