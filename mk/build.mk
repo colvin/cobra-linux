@@ -228,7 +228,7 @@ build-cleanup:
 	rm -rf $(BUILD_ROOT)/tools
 	umount $(BUILD_ROOT)/fenrir
 	rmdir $(BUILD_ROOT)/fenrir
-	unmount $(BUILD_ROOT)/distfiles
+	umount $(BUILD_ROOT)/distfiles
 	rmdir $(BUILD_ROOT)/distfiles
 	umount $(BUILD_ROOT)/dev
 	umount $(BUILD_ROOT)/proc
