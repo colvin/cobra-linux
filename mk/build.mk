@@ -21,6 +21,7 @@ endif
 BUILD_TARGETS = \
 	container-check \
 	bootstrap \
+	fetch-sources \
 	build-prep \
 	build-system \
 	build-cleanup \
@@ -118,6 +119,18 @@ $(RESULT_DIR)/$(BOOTSTRAP_ARCHIVE):
 	-find /tools/{lib,libexec} -name \*.la -delete
 	cd $(BUILD_ROOT) \
 	&& tar czf $(RESULT_DIR)/$(BOOTSTRAP_ARCHIVE) tools
+
+fetch-sources:
+	@echo
+	@echo "    +========================+"
+	@echo "    |                        |"
+	@echo "    |    fetching sources    |"
+	@echo "    |                        |"
+	@echo "    +========================+"
+	@echo
+	for pkg in $(SYSTEM_ONE) $(SYSTEM_TWO); do \
+		$(MAKE) -C $(PKG_DIR)/$$pkg fetch || exit 1 ; \
+	done
 
 build-prep:
 	@echo
