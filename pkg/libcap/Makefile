@@ -12,7 +12,7 @@ default: build
 
 include $(CURDIR)/../../mk/pkg.mk
 
-build: fetch extract
+build: chroot-check fetch extract
 
 test:
 

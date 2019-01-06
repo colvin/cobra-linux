@@ -28,7 +28,7 @@ bootstrap-one-build:
 		--with-gxx-include-dir=/tools/$(BOOTSTRAP_TGT)/include/c++/$(VERSION) \
 	&& make -j$(PKG_JOBS)
 
-build: fetch extract
+build: chroot-check fetch extract
 	false
 
 test:

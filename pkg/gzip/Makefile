@@ -21,7 +21,7 @@ bootstrap-two-build:
 	&& ./configure --prefix=/tools \
 	&& make -j$(PKG_JOBS)
 
-build: fetch extract
+build: chroot-check fetch extract
 	false
 
 test:

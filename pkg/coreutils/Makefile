@@ -21,7 +21,7 @@ bootstrap-two-build:
 		--enable-install-program=hostname \
 	&& make -j$(PKG_JOBS)
 
-build: fetch extract
+build: chroot-check fetch extract
 	false
 
 test:

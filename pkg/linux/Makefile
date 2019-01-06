@@ -20,8 +20,12 @@ bootstrap-one-build-install:
 	&& make INSTALL_HDR_PATH=dest headers_install \
 	&& cp -r dest/include/* /tools/include
 
-build: fetch extract
-	false
+build: chroot-check fetch extract
+	cd $(BUILD_DIR) \
+	&& make mrproper \
+	&& make INSTALL_HDR_PATH=dest headers_install \
+	&& find dest/include \( -name .install -o -name ..install.cmd \) -delete \
+	&& cp -r dest/include/* /usr/include
 
 test:
 	false

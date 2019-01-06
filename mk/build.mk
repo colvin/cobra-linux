@@ -66,6 +66,11 @@ BOOTSTRAP_TWO = \
 	util-linux \
 	xz
 
+SYSTEM_ONE = \
+	linux
+
+SYSTEM_TWO =
+
 ifndef KEEP_BUILD_CONTAINER
 DOCKER_RUN_RM	= --rm
 endif
@@ -172,7 +177,10 @@ build-prep:
 	    sed 's@tools@usr@g' /tools/lib/pkgconfig/$${pc}.pc \
 		> $(BUILD_ROOT)/usr/lib/pkgconfig/$${pc}.pc; \
 	done
-	ln -sv bash $(BUILD_ROOT)/bin/sh
+	ln -s bash $(BUILD_ROOT)/bin/sh
+	ln -s /proc/self/mounts $(BUILD_ROOT)/etc/mtab
+	install -m 0644 $(ETC_DIR)/passwd $(BUILD_ROOT)/etc/passwd
+	install -m 0644 $(ETC_DIR)/group $(BUILD_ROOT)/etc/group
 
 build-system:
 	@echo
@@ -197,6 +205,15 @@ chroot-build: chroot-check
 	@echo "    |                                   |"
 	@echo "    +===================================+"
 	@echo
+	for pkg in $(SYSTEM_ONE); do \
+		echo ; echo "====> $$pkg" ; echo ; \
+		$(MAKE) -C $(PKG_DIR)/$$pkg build clean || exit 1 ;\
+	done
+	## TODO: adjust toolchain
+	for pkg in $(SYSTEM_TWO); do \
+		echo ; echo "====> $$pkg" ; echo ; \
+		$(MAKE) -C $(PKG_DIR)/$$pkg build clean || exit 1 ;\
+	done
 
 build-cleanup:
 	@echo

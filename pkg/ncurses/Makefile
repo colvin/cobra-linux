@@ -26,7 +26,7 @@ bootstrap-two-build:
 		--enable-overwrite \
 	&& make -j$(PKG_JOBS)
 
-build: fetch extract
+build: chroot-check fetch extract
 	false
 
 test:

@@ -33,7 +33,7 @@ bootstrap-one-test:
 	&& $(BOOTSTRAP_TGT)-gcc dummy.c \
 	&& readelf -l a.out | grep ': /tools' | grep -q /tools/lib64/ld-linux-x86-64.so.2
 
-build: fetch extract
+build: chroot-check fetch extract
 	false
 
 test:

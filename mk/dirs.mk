@@ -4,6 +4,7 @@
 
 SETUP_DIR		= $(PROJECT_ROOT)/setup
 PKG_DIR			= $(PROJECT_ROOT)/pkg
+ETC_DIR			= $(PROJECT_ROOT)/etc
 BUILD_ROOT		= /build
 DISTFILES		= /distfiles
 LOCAL_DISTFILES		= $(PROJECT_ROOT)/distfiles

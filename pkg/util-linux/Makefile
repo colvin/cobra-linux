@@ -25,7 +25,7 @@ bootstrap-two-build:
 		PKG_CONFIG="" \
 	&& make -j$(PKG_JOBS)
 
-build: fetch extract
+build: chroot-check fetch extract
 	false
 
 test:

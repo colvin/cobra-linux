@@ -27,7 +27,7 @@ bootstrap-two-build:
 bootstrap-two-install:
 	cd $(BUILD_DIR) && make SCRIPTS="" install
 
-build: fetch extract
+build: chroot-check fetch extract
 	false
 
 test:

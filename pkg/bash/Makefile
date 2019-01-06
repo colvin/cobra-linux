@@ -22,7 +22,7 @@ bootstrap-two-build:
 bootstrap-two-postinstall:
 	ln -s bash /tools/bin/sh
 
-build: fetch extract
+build: chroot-check fetch extract
 	false
 
 test:

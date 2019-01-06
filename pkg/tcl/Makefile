@@ -24,7 +24,7 @@ bootstrap-two-postinstall:
 	&& chmod u+w /tools/lib/libtcl8.6.so \
 	&& make install-private-headers
 
-build: fetch extract
+build: chroot-check fetch extract
 	false
 
 test:

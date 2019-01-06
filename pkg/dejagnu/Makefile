@@ -17,7 +17,7 @@ bootstrap-two: fetch extract bootstrap-two-build install
 bootstrap-two-build:
 	cd $(BUILD_DIR) && ./configure --prefix=/tools
 
-build: fetch extract
+build: chroot-check fetch extract
 	false
 
 test:

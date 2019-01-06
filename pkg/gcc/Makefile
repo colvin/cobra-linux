@@ -85,7 +85,7 @@ bootstrap-two-build:
 		--disable-libgomp \
 	&& make -j$(PKG_JOBS)
 
-build: fetch extract
+build: chroot-check fetch extract
 	false
 
 test:

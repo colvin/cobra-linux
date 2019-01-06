@@ -26,7 +26,7 @@ bootstrap-two-build-install:
 	&& $(MAKE) -C src xgettext \
 	&& cp src/{msgfmt,msgmerge,xgettext} /tools/bin
 
-build: fetch extract
+build: chroot-check fetch extract
 	false
 
 test:

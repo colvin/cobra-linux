@@ -27,7 +27,7 @@ bootstrap-two-build-install:
 	&& mkdir -p /tools/lib/perl5/5.28.0 \
 	&& cp -R lib/* /tools/lib/perl5/5.28.0
 
-build: fetch extract
+build: chroot-check fetch extract
 	false
 
 test:

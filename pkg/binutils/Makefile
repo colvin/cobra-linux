@@ -50,7 +50,7 @@ bootstrap-two-postinstall:
 	&& make -j$(PKG_JOBS) -C ld LIB_PATH=/usr/lib:/lib \
 	&& cp ld/ld-new /tools/bin
 
-build: fetch extract
+build: chroot-check fetch extract
 	false
 
 test:
