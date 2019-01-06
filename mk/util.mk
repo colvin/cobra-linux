@@ -17,6 +17,12 @@ container-check:
 		exit 1 \
 	)
 
+chroot-check:
+	@test -n "$(FENRIR_IN_CHROOT)" || ( \
+		echo "** cannot do build-system outside of the chroot **"; \
+		exit 1 \
+	)
+
 rcs-tags:
 	git stash save
 	rm .git/index
