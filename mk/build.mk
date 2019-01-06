@@ -223,12 +223,12 @@ chroot-build: chroot-check
 	@echo
 	for pkg in $(SYSTEM_ONE); do \
 		echo ; echo "====> $$pkg" ; echo ; \
-		$(MAKE) -C $(PKG_DIR)/$$pkg build install clean || exit 1 ;\
+		$(MAKE) -C $(PKG_DIR)/$$pkg || exit 1 ;\
 	done
 	## TODO: adjust toolchain
 	for pkg in $(SYSTEM_TWO); do \
 		echo ; echo "====> $$pkg" ; echo ; \
-		$(MAKE) -C $(PKG_DIR)/$$pkg build install clean || exit 1 ;\
+		$(MAKE) -C $(PKG_DIR)/$$pkg || exit 1 ;\
 	done
 
 build-cleanup:

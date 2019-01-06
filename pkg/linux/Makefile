@@ -8,7 +8,7 @@ URL		= https://www.kernel.org/pub/linux/kernel/v4.x
 CHECKSUM	= 22851fe6c82db6673a844bbb7c62df67
 SOURCE_DIR	= linux-4.18.5
 
-default: build
+default: build install clean
 
 include $(CURDIR)/../../mk/pkg.mk
 
