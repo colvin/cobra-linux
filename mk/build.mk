@@ -70,7 +70,11 @@ BOOTSTRAP_TWO = \
 SYSTEM_ONE = \
 	linux \
 	man-pages \
-	glibc
+	glibc \
+	zlib \
+	file \
+	readline \
+	m4
 
 SYSTEM_TWO =
 
