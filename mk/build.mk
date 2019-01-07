@@ -172,11 +172,11 @@ build-prep:
 	install -d -m 1777 $(BUILD_ROOT)/tmp $(BUILD_ROOT)/var/tmp
 	mkdir -p $(BUILD_ROOT)/usr/{,local/}{bin,include,lib,sbin,src}
 	mkdir -p $(BUILD_ROOT)/usr/{,local/}share/{color,dict,doc,info,locale,man}
-	mkdir $(BUILD_ROOT)/usr/{,local/}share/{misc,terminfo,zoneinfo}
-	mkdir $(BUILD_ROOT)/usr/libexec
+	mkdir -p $(BUILD_ROOT)/usr/{,local/}share/{misc,terminfo,zoneinfo}
+	mkdir -p $(BUILD_ROOT)/usr/libexec
 	mkdir -p $(BUILD_ROOT)/usr/{,local/}share/man/man{1..8}
-	mkdir $(BUILD_ROOT)/lib64
-	mkdir $(BUILD_ROOT)/var/{log,mail,spool}
+	mkdir -p $(BUILD_ROOT)/lib64
+	mkdir -p $(BUILD_ROOT)/var/{log,mail,spool}
 	ln -s /run $(BUILD_ROOT)/var/run
 	ln -s /run/lock $(BUILD_ROOT)/var/lock
 	mkdir -p $(BUILD_ROOT)/var/{opt,cache,lib/{color,misc,locate},local}
@@ -214,8 +214,9 @@ build-system:
 		HOME=/root \
 		TERM=$(TERM) \
 		PATH=/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin \
+		FENRIR_IN_CHROOT=1 \
 		/tools/bin/bash +h -c \
-		'make -C /fenrir FENRIR_IN_CHROOT=1 chroot-build'
+		'make -C /fenrir chroot-build'
 
 chroot-build: chroot-check
 	@echo
