@@ -22,7 +22,7 @@ bootstrap-two-build:
 build: chroot-check fetch extract
 	cd $(BUILD_DIR) \
 	&& ./configure --prefix=/usr \
-	&& make -$(PKG_JOBS)
+	&& make -j$(PKG_JOBS)
 
 test:
 	cd $(BUILD_DIR) && make check
