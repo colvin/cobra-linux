@@ -272,6 +272,7 @@ build-cleanup:
 	rmdir $(BUILD_ROOT)/fenrir
 	umount $(BUILD_ROOT)/distfiles
 	rmdir $(BUILD_ROOT)/distfiles
+	umount $(BUILD_ROOT)/dev/pts
 	umount $(BUILD_ROOT)/dev
 	umount $(BUILD_ROOT)/proc
 	umount $(BUILD_ROOT)/sys
