@@ -22,5 +22,7 @@ test:
 
 install:
 	cd $(BUILD_DIR) && make install
+	mv /usr/lib/libz.so.* /lib
+	ln -sf /lib/$$(readlink /usr/lib/libz.so) /usr/lib/libz.so
 
 .PHONY: default build test install
