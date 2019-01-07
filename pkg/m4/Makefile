@@ -22,10 +22,14 @@ bootstrap-two-build:
 	&& make -j$(PKG_JOBS)
 
 build: chroot-check fetch extract
-	false
+	cd $(BUILD_DIR) \
+	&& sed -i 's/IO_ftrylockfile/IO_EOF_SEEN/' lib/*.c \
+	&& echo "#define _IO_IN_BACKUP 0x100" >> lib/stdio-impl.h \
+	&& ./configure --prefix=/usr \
+	&& make -j$(PKG_JOBS)
 
 test:
-	false
+	cd $(BUILD_DIR) && make check
 
 install:
 	cd $(BUILD_DIR) && make install
