@@ -20,10 +20,12 @@ bootstrap-two-build:
 	&& make -j$(PKG_JOBS)
 
 build: chroot-check fetch extract
-	false
+	cd $(BUILD_DIR) \
+	&& ./configure --prefix=/usr \
+	&& make -$(PKG_JOBS)
 
 test:
-	false
+	cd $(BUILD_DIR) && make check
 
 install:
 	cd $(BUILD_DIR) && make install
