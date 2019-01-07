@@ -15,7 +15,7 @@ include $(CURDIR)/../../mk/pkg.mk
 build: chroot-check fetch extract
 	cd $(BUILD_DIR) \
 	&& ./configure --prefix=/usr \
-	&& make -j$(PKG_DIR)
+	&& make -j$(PKG_JOBS)
 
 test:
 	cd $(BUILD_DIR) && make check
