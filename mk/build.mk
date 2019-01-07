@@ -237,6 +237,7 @@ chroot-build: chroot-check
 	mv /tools/x86_64-pc-linux-gnu/bin/{ld,ld-old}
 	mv /tools/bin/{ld-new,ld}
 	ln -s /tools/bin/ld /tools/x86_64-pc-linux-gnu/bin/ld
+	ln -sf gcc /tools/bin/cc
 	gcc -dumpspecs | sed -e 's@/tools@@g' \
 		-e '/\*startfile_prefix_spec:/{n;s@.*@/usr/lib/ @}' \
 		-e '/\*cpp:/{n;s@$$@ -isystem /usr/include@}' > \
