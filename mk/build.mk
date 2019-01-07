@@ -225,13 +225,33 @@ chroot-build: chroot-check
 	@echo "    |                                   |"
 	@echo "    +===================================+"
 	@echo
+	## rebuild initial packages
 	for pkg in $(SYSTEM_ONE); do \
 		echo ; echo "====> $$pkg" ; echo ; \
 		$(MAKE) -C $(PKG_DIR)/$$pkg || exit 1 ;\
 	done
 	install -m 0644 $(ETC_DIR)/ld.so.conf /etc/ld.so.conf
 	install -m 0644 $(ETC_DIR)/nsswitch.conf /etc/nsswitch.conf
-	## TODO: adjust toolchain
+	## adjust the toolchain
+	mv /tools/bin/{ld,ld-old}
+	mv /tools/x86_64-pc-linux-gnu/bin/{ld,ld-old}
+	mv /tools/bin/{ld-new,ld}
+	ln -s /tools/bin/ld /tools/x86_64-pc-linux-gnu/bin/ld
+	gcc -dumpspecs | sed -e 's@/tools@@g' \
+		-e '/\*startfile_prefix_spec:/{n;s@.*@/usr/lib/ @}' \
+		-e '/\*cpp:/{n;s@$$@ -isystem /usr/include@}' > \
+		$$(dirname $$(gcc --print-libgcc-file-name))/specs
+	echo 'int main(){}' > /tmp/dummy.c
+	cc /tmp/dummy.c -v -Wl,--verbose -o /tmp/dummy &> /tmp/dummy.log
+	readelf -l /tmp/dummy | grep -q ': /lib64/ld-linux-x86-64.so.2'
+	test `grep -o '/usr/lib.*/crt[1in].*succeeded' /tmp/dummy.log | wc -l` = '3'
+	test `grep -A1 '#include <...>' /tmp/dummy.log | tail -1 | awk '{print $$1}'` = "/usr/include"
+	grep -q 'SEARCH_DIR("/usr/lib")' /tmp/dummy.log
+	grep -q 'SEARCH_DIR("/lib")' /tmp/dummy.log
+	grep -q 'open /lib/libc.so.6 succeeded' /tmp/dummy.log
+	grep -q 'found ld-linux-x86-64.so.2 at /lib/ld-linux-x86-64.so.2' /tmp/dummy.log
+	rm /tmp/dummy*
+	## build remaining packages
 	for pkg in $(SYSTEM_TWO); do \
 		echo ; echo "====> $$pkg" ; echo ; \
 		$(MAKE) -C $(PKG_DIR)/$$pkg || exit 1 ;\
@@ -245,6 +265,7 @@ build-cleanup:
 	@echo "    |                     |"
 	@echo "    +=====================+"
 	@echo
+	rm -rf $(BUILD_ROOT)/tmp/*
 	rm -rf $(BUILD_ROOT)/tools
 	umount $(BUILD_ROOT)/fenrir
 	rmdir $(BUILD_ROOT)/fenrir
