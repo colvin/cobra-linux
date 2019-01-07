@@ -93,7 +93,7 @@ test:
 
 install:
 	cd $(BUILD_DIR)/build && make install
-	ln -sf /tools/bin/gcc /usr/bin/cc
+	ln -sf /tools/bin/gcc /tools/bin/cc
 
 compile-dummy:
 	cd $(WORK_DIR) \
