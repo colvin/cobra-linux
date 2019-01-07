@@ -8,7 +8,7 @@ URL		= http://ftp.gnu.org/gnu/glibc
 CHECKSUM	= c81d2388896379997bc359d4f2084239
 SOURCE_DIR	= glibc-2.28
 
-default: build test install clean
+default: build install clean
 
 include $(CURDIR)/../../mk/pkg.mk
 
@@ -57,7 +57,7 @@ test:
 install:
 	touch /etc/ld.so.conf
 	cd $(BUILD_DIR)/build \
-	&& sed '/test-installation/s@$(PERL)@echo not running@' -i ../Makefile \
+	&& sed '/test-installation/s@$$(PERL)@echo not running@' -i ../Makefile \
 	&& make install \
 	&& cp ../nscd/nscd.conf /etc/nscd.conf \
 	&& mkdir -p /var/cache/nscd \

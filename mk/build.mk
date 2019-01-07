@@ -144,6 +144,7 @@ build-prep:
 	@echo
 	mkdir -p $(BUILD_ROOT)/{dev,proc,sys,run}
 	mount --bind /dev $(BUILD_ROOT)/dev
+	mount -t devpts devpts $(BUILD_ROOT)/dev/pts -o gid=5,mode=620
 	mount -t proc proc $(BUILD_ROOT)/proc
 	mount -t sysfs sysfs $(BUILD_ROOT)/sys
 	mount -t tmpfs tmpfs $(BUILD_ROOT)/run
