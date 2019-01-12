@@ -54,7 +54,7 @@ bootstrap-two-postinstall:
 	&& cp ld/ld-new /tools/bin
 
 build: chroot-check fetch extract
-	test `expect -c "spawn ls"` = "spawn ls"
+	test "`expect -c 'spawn ls'`" = "spawn ls"
 	mkdir $(BUILD_DIR)/build
 	cd $(BUILD_DIR)/build \
 	&& ./configure \
