@@ -74,7 +74,9 @@ SYSTEM_ONE = \
 	zlib \
 	file \
 	readline \
-	m4
+	m4 \
+	bc \
+	binutils
 
 SYSTEM_TWO =
 

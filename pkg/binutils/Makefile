@@ -28,7 +28,7 @@ bootstrap-one-build:
 	&& mkdir -v /tools/lib \
 	&& ln -sv lib /tools/lib64
 
-bootstrap-two: fetch extract bootstrap-two-build install bootstrap-two-postinstall
+bootstrap-two: fetch extract bootstrap-two-build bootstrap-two-install bootstrap-two-postinstall
 
 bootstrap-two-build:
 	mkdir $(BUILD_DIR)/build
@@ -44,6 +44,9 @@ bootstrap-two-build:
 		--with-sysroot \
 	&& make -j$(PKG_JOBS)
 
+bootstrap-two-install:
+	cd $(BUILD_DIR)/build && make install
+
 bootstrap-two-postinstall:
 	cd $(BUILD_DIR)/build \
 	&& make -C ld clean \
@@ -51,12 +54,24 @@ bootstrap-two-postinstall:
 	&& cp ld/ld-new /tools/bin
 
 build: chroot-check fetch extract
-	false
+	test `expect -c "spawn ls"` = "spawn ls"
+	mkdir $(BUILD_DIR)/build
+	cd $(BUILD_DIR)/build \
+	&& ./configure \
+		--prefix=/usr \
+		--enable-gold \
+		--enable-ld=default \
+		--enable-plugins \
+		--enable-shared \
+		--disable-werror \
+		--enable-64-bit-bfd \
+		--with-system-zlib \
+	&& make -j$(PKG_JOBS) tooldir=/usr
 
 test:
-	false
+	cd $(BUILD_DIR)/build && make -k check
 
 install:
-	cd $(BUILD_DIR)/build && make install
+	cd $(BUILD_DIR)/build && make tooldir=/usr install
 
 .PHONY: default build test install
