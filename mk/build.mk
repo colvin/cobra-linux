@@ -82,7 +82,65 @@ SYSTEM_TWO = \
 	m4 \
 	bc \
 	binutils \
-	gmp
+	gmp \
+	mpfr \
+	mpc \
+	shadow \
+	gcc \
+	bzip2 \
+	pkg-config \
+	ncurses \
+	attr \
+	acl \
+	libcap \
+	sed \
+	psmisc \
+	iana-etc \
+	bison \
+	flex \
+	grep \
+	bash \
+	libtool \
+	gdbm \
+	gperf \
+	expat \
+	inetutils \
+	perl \
+	perl-XML-Parser \
+	intltool \
+	autoconf \
+	automake \
+	xz \
+	kmod \
+	gettext \
+	elfutils \
+	libffi \
+	openssl \
+	python \
+	ninja \
+	meson \
+	systemd \
+	procps-ng \
+	e2fsprogs \
+	coreutils \
+	check \
+	diffutils \
+	gawk \
+	findutils \
+	groff \
+	less \
+	gzip \
+	iproute2 \
+	kbd \
+	libpipeline \
+	make \
+	patch \
+	dbus \
+	util-linux \
+	man-db \
+	tar \
+	texinfo \
+	vim
 
 ifndef KEEP_BUILD_CONTAINER
 DOCKER_RUN_RM	= --rm
@@ -187,16 +245,16 @@ build-prep:
 	mkdir -p $(BUILD_ROOT)/usr/{,local/}share/man/man{1..8}
 	mkdir -p $(BUILD_ROOT)/lib64
 	mkdir -p $(BUILD_ROOT)/var/{log,mail,spool}
-	ln -s /run $(BUILD_ROOT)/var/run
-	ln -s /run/lock $(BUILD_ROOT)/var/lock
+	ln -sf /run $(BUILD_ROOT)/var/run
+	ln -sf /run/lock $(BUILD_ROOT)/var/lock
 	mkdir -p $(BUILD_ROOT)/var/{opt,cache,lib/{color,misc,locate},local}
 	## symlinks
-	ln -s /tools/bin/{bash,cat,dd,echo,ln,pwd,rm,stty} $(BUILD_ROOT)/bin
-	ln -s /tools/bin/{env,install,perl} $(BUILD_ROOT)/usr/bin
-	ln -s /tools/lib/libgcc_s.so{,.1} $(BUILD_ROOT)/usr/lib
-	ln -s /tools/lib/libstdc++.{a,so{,.6}} $(BUILD_ROOT)/usr/lib
+	ln -sf /tools/bin/{bash,cat,dd,echo,ln,pwd,rm,stty} $(BUILD_ROOT)/bin
+	ln -sf /tools/bin/{env,install,perl} $(BUILD_ROOT)/usr/bin
+	ln -sf /tools/lib/libgcc_s.so{,.1} $(BUILD_ROOT)/usr/lib
+	ln -sf /tools/lib/libstdc++.{a,so{,.6}} $(BUILD_ROOT)/usr/lib
 	for lib in blkid lzma mount uuid; do \
-	    ln -s /tools/lib/lib$$lib.so* $(BUILD_ROOT)/usr/lib; \
+	    ln -sf /tools/lib/lib$$lib.so* $(BUILD_ROOT)/usr/lib; \
 	done
 	ln -sf /tools/include/blkid    $(BUILD_ROOT)/usr/include
 	ln -sf /tools/include/libmount $(BUILD_ROOT)/usr/include
@@ -206,8 +264,8 @@ build-prep:
 	    sed 's@tools@usr@g' /tools/lib/pkgconfig/$${pc}.pc \
 		> $(BUILD_ROOT)/usr/lib/pkgconfig/$${pc}.pc; \
 	done
-	ln -s bash $(BUILD_ROOT)/bin/sh
-	ln -s /proc/self/mounts $(BUILD_ROOT)/etc/mtab
+	ln -sf bash $(BUILD_ROOT)/bin/sh
+	ln -sf /proc/self/mounts $(BUILD_ROOT)/etc/mtab
 	## files
 	install -m 0644 $(ETC_DIR)/passwd $(BUILD_ROOT)/etc/passwd
 	install -m 0644 $(ETC_DIR)/group $(BUILD_ROOT)/etc/group
