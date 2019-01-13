@@ -20,10 +20,13 @@ bootstrap-two-build:
 	&& make -j$(PKG_JOBS)
 
 build: chroot-check fetch extract
-	false
+	cd $(BUILD_DIR) \
+	&& ./configure \
+		--prefix=/usr \
+		--docdir=/usr/share/doc/bison-3.0.5 \
+	&& make -j$(PKG_JOBS)
 
 test:
-	false
 
 install:
 	cd $(BUILD_DIR) && make install

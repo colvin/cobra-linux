@@ -13,9 +13,15 @@ default: build install clean
 include $(CURDIR)/../../mk/pkg.mk
 
 build: chroot-check fetch extract
+	cd $(BUILD_DIR) \
+	&& ./configure --prefix=/usr \
+	&& make -j$(PKG_JOBS)
 
 test:
 
 install:
+	cd $(BUILD_DIR) && make install
+	mv /usr/bin/fuser /bin
+	mv /usr/bin/killall /bin
 
 .PHONY: default build test install

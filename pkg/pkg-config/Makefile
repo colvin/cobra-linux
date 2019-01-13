@@ -13,9 +13,18 @@ default: build install clean
 include $(CURDIR)/../../mk/pkg.mk
 
 build: chroot-check fetch extract
+	cd $(BUILD_DIR) \
+	&& ./configure \
+		--prefix=/usr \
+		--with-internal-glib \
+		--disable-host-tool \
+		--docdir=/usr/share/doc/pkg-config-0.29.2 \
+	&& make -j$(PKG_JOBS)
 
 test:
+	cd $(BUILD_DIR) && make check
 
 install:
+	cd $(BUILD_DIR) && make install
 
 .PHONY: default build test install

@@ -8,7 +8,7 @@ URL		= http://ftp.gnu.org/gnu/bash
 CHECKSUM	= 518e2c187cc11a17040f0915dddce54e
 SOURCE_DIR	= bash-4.4.18
 
-default: build install clean
+default: build install postinstall clean
 
 include $(CURDIR)/../../mk/pkg.mk
 
@@ -23,12 +23,23 @@ bootstrap-two-postinstall:
 	ln -s bash /tools/bin/sh
 
 build: chroot-check fetch extract
-	false
+	cd $(BUILD_DIR) \
+	&& ./configure \
+		--prefix=/usr \
+		--docdir=/usr/share/doc/bash-4.4.18 \
+		--without-bash-malloc \
+		--with-installed-readline \
+	&& make -j$(PKG_JOBS)
 
 test:
-	false
+	cd $(BUILD_DIR) \
+	&& chown -R nobody . \
+	&& su nobody -s /bin/bash -c "PATH=$$PATH make tests"
 
 install:
 	cd $(BUILD_DIR) && make install
+
+postinstall:
+	mv -f /usr/bin/bash /bin
 
 .PHONY: default build test install

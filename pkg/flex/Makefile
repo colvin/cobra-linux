@@ -13,9 +13,18 @@ default: build install clean
 include $(CURDIR)/../../mk/pkg.mk
 
 build: chroot-check fetch extract
+	cd $(BUILD_DIR) \
+	&& sed -i "/math.h/a #include <malloc.h>" src/flexdef.h \
+	&& HELP2MAN=/tools/bin/true ./configure \
+		--prefix=/usr \
+		--docdir=/usr/share/doc/flex-2.6.4 \
+	&& make -j$(PKG_JOBS)
 
 test:
+	cd $(BUILD_DIR) && make check
 
 install:
+	cd $(BUILD_DIR) && make install
+	ln -s flex /usr/bin/lex
 
 .PHONY: default build test install

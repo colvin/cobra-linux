@@ -20,10 +20,16 @@ bootstrap-two-build:
 	&& make -j$(PKG_JOBS)
 
 build: chroot-check fetch extract
-	false
+	cd $(BUILD_DIR) \
+	&& sed -i 's/usr/tools/' build-aux/help2man \
+	&& sed -i 's/testsuite.panic-tests.sh//' Makefile.in \
+	&& ./configure \
+		--prefix=/usr \
+		--bindir=/bin \
+	&& make -j$(PKG_JOBS)
 
 test:
-	false
+	cd $(BUILD_DIR) && make check
 
 install:
 	cd $(BUILD_DIR) && make install
