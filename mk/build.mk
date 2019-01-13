@@ -7,7 +7,10 @@ build-image:
 		echo "** container cannot be built within a container **"; \
 		exit 1 \
 	)
-	git archive -o $(SRC_ARCHIVE) HEAD
+	tar czf $(SRC_ARCHIVE) \
+		--exclude distfiles \
+		--exclude result \
+		*
 	docker build -f builder/Dockerfile -t fenrir/builder:latest $(PROJECT_ROOT)
 
 ifdef FENRIR_CONTAINER
@@ -78,7 +81,8 @@ SYSTEM_TWO = \
 	readline \
 	m4 \
 	bc \
-	binutils
+	binutils \
+	gmp
 
 ifndef KEEP_BUILD_CONTAINER
 DOCKER_RUN_RM	= --rm
