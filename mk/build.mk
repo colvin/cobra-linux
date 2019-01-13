@@ -72,7 +72,7 @@ SYSTEM_ONE = \
 	man-pages \
 	glibc
 
-SYSTEM_TWO =
+SYSTEM_TWO = \
 	zlib \
 	file \
 	readline \
