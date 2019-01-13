@@ -70,15 +70,15 @@ BOOTSTRAP_TWO = \
 SYSTEM_ONE = \
 	linux \
 	man-pages \
-	glibc \
+	glibc
+
+SYSTEM_TWO =
 	zlib \
 	file \
 	readline \
 	m4 \
 	bc \
 	binutils
-
-SYSTEM_TWO =
 
 ifndef KEEP_BUILD_CONTAINER
 DOCKER_RUN_RM	= --rm
