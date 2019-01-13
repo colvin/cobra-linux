@@ -57,7 +57,7 @@ build: chroot-check fetch extract
 	expect -c 'spawn ls'
 	mkdir $(BUILD_DIR)/build
 	cd $(BUILD_DIR)/build \
-	&& ./configure \
+	&& ../configure \
 		--prefix=/usr \
 		--enable-gold \
 		--enable-ld=default \
