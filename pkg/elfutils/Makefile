@@ -13,9 +13,17 @@ default: build install clean
 include $(CURDIR)/../../mk/pkg.mk
 
 build: chroot-check fetch extract
+	cd $(BUILD_DIR) \
+	&& ./configure \
+		--prefix=/usr \
+	&& make -j$(PKG_JOBS)
 
 test:
+	cd $(BUILD_DIR) && make check
 
 install:
+	cd $(BUILD_DIR) \
+	&& make -C libelf install \
+	&& install -m 644 config/libelf.pc /usr/lib/pkgconfig
 
 .PHONY: default build test install

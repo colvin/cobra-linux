@@ -13,9 +13,21 @@ default: build install clean
 include $(CURDIR)/../../mk/pkg.mk
 
 build: chroot-check fetch extract
+	cd $(BUILD_DIR) \
+	&& ./configure \
+		--prefix=/usr \
+		--enable-shared \
+		--with-system-expat \
+		--with-system-ffi \
+		--with-ensurepip=yes \
+	&& make -j$(PKG_JOBS)
 
 test:
 
 install:
+	cd $(BUILD_DIR) \
+	&& make install \
+	&& chmod 755 /usr/lib/libpython3.7m.so \
+	&& chmod 755 /usr/lib/libpython3.so
 
 .PHONY: default build test install

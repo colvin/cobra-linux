@@ -13,9 +13,16 @@ default: build install clean
 include $(CURDIR)/../../mk/pkg.mk
 
 build: chroot-check fetch extract
+	cd $(BUILD_DIR) \
+	&& ./configure \
+		--prefix=/usr \
+		--docdir=/usr/share/doc/automake-1.16.1 \
+	&& make -j$(PKG_JOBS)
 
 test:
+	cd $(BUILD_DIR) && make -j$(PKG_JOBS) check
 
 install:
+	cd $(BUILD_DIR) && make install
 
 .PHONY: default build test install

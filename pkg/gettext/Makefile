@@ -27,12 +27,23 @@ bootstrap-two-build-install:
 	&& cp src/{msgfmt,msgmerge,xgettext} /tools/bin
 
 build: chroot-check fetch extract
-	false
+	cd $(BUILD_DIR) \
+	&& sed -i '/^TESTS =/d' gettext-runtime/tests/Makefile.in \
+	&& sed -i 's/test-lock..EXEEXT.//' gettext-tools/gnulib-tests/Makefile.in \
+	&& sed -e '/AppData/{N;N;p;s/\.appdata\./.metainfo./}' \
+		-i gettext-tools/its/appdata.loc \
+	&& ./configure \
+		--prefix=/usr \
+		--disable-static \
+		--docdir=/usr/share/doc/gettext-0.19.8.1 \
+	&& make -j$(PKG_JOBS)
 
 test:
-	false
+	cd $(BUILD_DIR) && make -j$(PKG_JOBS) check
 
 install:
-	false
+	cd $(BUILD_DIR) \
+	&& make install \
+	&& chmod 0755 /usr/lib/preloadable_libintl.so
 
 .PHONY: default build test install

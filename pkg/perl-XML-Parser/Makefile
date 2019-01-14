@@ -13,9 +13,14 @@ default: build install clean
 include $(CURDIR)/../../mk/pkg.mk
 
 build: chroot-check fetch extract
+	cd $(BUILD_DIR) \
+	&& perl Makefile.PL \
+	&& make -j$(PKG_JOBS)
 
 test:
+	cd $(BUILD_DIR) && make test
 
 install:
+	cd $(BUILD_DIR) && make install
 
 .PHONY: default build test install

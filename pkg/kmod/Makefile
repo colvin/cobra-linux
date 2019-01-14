@@ -13,9 +13,24 @@ default: build install clean
 include $(CURDIR)/../../mk/pkg.mk
 
 build: chroot-check fetch extract
+	cd $(BUILD_DIR) \
+	&& ./configure \
+		--prefix=/usr \
+		--bindir=/bin \
+		--sysconfdir=/etc \
+		--with-rootlibdir=/lib \
+		--with-xz \
+		--with-zlib \
+	&& make -j$(PKG_JOBS)
 
 test:
 
 install:
+	cd $(BUILD_DIR) \
+	&& make install \
+	&& for target in depmod insmod lsmod modinfo modprobe rmmod; do \
+		ls -sf ../bin/kmod /sbin/$$target ; \
+	done \
+	&& ln -sf kmod /bin/lsmod
 
 .PHONY: default build test install

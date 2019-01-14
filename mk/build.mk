@@ -111,15 +111,11 @@ SYSTEM_TWO = \
 	autoconf \
 	automake \
 	xz \
-	kmod \
 	gettext \
 	elfutils \
 	libffi \
 	openssl \
 	python \
-	ninja \
-	meson \
-	systemd \
 	procps-ng \
 	e2fsprogs \
 	coreutils \
@@ -269,6 +265,7 @@ build-prep:
 	## files
 	install -m 0644 $(ETC_DIR)/passwd $(BUILD_ROOT)/etc/passwd
 	install -m 0644 $(ETC_DIR)/group $(BUILD_ROOT)/etc/group
+	echo "127.0.0.1 localhost" > $(BUILD_ROOT)/etc/hosts
 
 build-system:
 	@echo

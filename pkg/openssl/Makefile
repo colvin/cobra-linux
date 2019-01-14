@@ -13,9 +13,21 @@ default: build install clean
 include $(CURDIR)/../../mk/pkg.mk
 
 build: chroot-check fetch extract
+	cd $(BUILD_DIR) \
+	&& ./config \
+		--prefix=/usr \
+		--openssldir=/etc/ssl \
+		--libdir=lib \
+		shared \
+		zlib-dynamic \
+	&& make -j$(PKG_JOBS)
 
 test:
+	cd $(BUILD_DIR) && make test
 
 install:
+	cd $(BUILD_DIR) \
+	&& sed -i '/INSTALL_LIBS/s/libcrypto.a libssl.a//' Makefile \
+	&& make MANSUFFIX=ssl install
 
 .PHONY: default build test install

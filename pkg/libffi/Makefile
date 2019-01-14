@@ -13,9 +13,22 @@ default: build install clean
 include $(CURDIR)/../../mk/pkg.mk
 
 build: chroot-check fetch extract
+	cd $(BUILD_DIR) \
+	&& sed -e '/^includesdir/ s/$$(libdir).*$$/$$(includedir)/' \
+		-i include/Makefile.in \
+	&& sed -e '/^includedir/ s/=.*$$/=@includedir@/' \
+		-e 's/^Cflags: -I$${includedir}/Cflags:/' \
+		-i libffi.pc.in \
+	&& ./configure \
+		--prefix=/usr \
+		--disable-static \
+		--with-gcc-arch=native \
+	&& make -j$(PKG_JOBS)
 
 test:
+	cd $(BUILD_DIR) && make check
 
 install:
+	cd $(BUILD_DIR) && make install
 
 .PHONY: default build test install

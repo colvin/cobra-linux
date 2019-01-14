@@ -13,9 +13,18 @@ default: build install clean
 include $(CURDIR)/../../mk/pkg.mk
 
 build: chroot-check fetch extract
+	cd $(BUILD_DIR) \
+	&& sed -i 's|usr/bin/env |bin/|' run.sh.in \
+	&& ./configure \
+		--prefix=/usr \
+		--disable-static \
+		--docdir=/usr/share/doc/expat-2.2.6 \
+	&& make -j$(PKG_JOBS)
 
 test:
+	cd $(BUILD_DIR) && make check
 
 install:
+	cd $(BUILD_DIR) && make install
 
 .PHONY: default build test install
