@@ -17,7 +17,7 @@ bootstrap-two: fetch extract bootstrap-two-build bootstrap-two-install
 bootstrap-two-install:
 	cd $(BUILD_DIR) && make PREFIX=/tools install
 
-bootstrap-two-build: chroot-check fetch extract
+bootstrap-two-build: fetch extract
 	cd $(BUILD_DIR) && make -j$(PKG_JOBS)
 
 build: chroot-check fetch extract

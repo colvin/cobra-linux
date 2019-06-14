@@ -12,7 +12,7 @@ default: build install clean
 
 include $(CURDIR)/../../mk/pkg.mk
 
-bootstrap-one: fetch extract bootstrap-one-build install bootstrap-one-test
+bootstrap-one: fetch extract bootstrap-one-build bootstrap-one-install bootstrap-one-test
 
 bootstrap-one-build:
 	mkdir $(BUILD_DIR)/build
@@ -26,6 +26,9 @@ bootstrap-one-build:
 		libc_cv_forced_unwind=yes \
 		libc_cv_c_cleanup=yes \
 	&& make -j$(PKG_JOBS)
+
+bootstrap-one-install:
+	cd $(BUILD_DIR) && make install
 
 bootstrap-one-test:
 	cd $(WORK_DIR) \
